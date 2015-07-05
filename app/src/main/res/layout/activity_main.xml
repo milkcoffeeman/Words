@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_words"
+        android:text="@string/words"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textColor="@color/blue"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_articles"
+        android:text="@string/articles"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btn_words"
+        android:textSize="30dp"
+        android:textColor="@color/blue"/>
+
+</RelativeLayout>
