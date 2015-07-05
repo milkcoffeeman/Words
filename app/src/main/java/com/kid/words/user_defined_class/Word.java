@@ -1,11 +1,11 @@
-package com.kid.words;
+package com.kid.words.user_defined_class;
 
 /**
  * Created by guotao on 15/6/29.
  */
 public class Word {
     private String word;
-    private String explain;
+    private String pronunciation;
     private String example;
     private int id;
 
@@ -17,8 +17,8 @@ public class Word {
         return word;
     }
 
-    public String getExplain() {
-        return explain;
+    public String getPronunciation() {
+        return pronunciation;
     }
 
     public String getExample() {
@@ -33,8 +33,8 @@ public class Word {
         this.word = word;
     }
 
-    public void setExplain(String explain) {
-        this.explain = explain;
+    public void setPronunciation(String pronunciation) {
+        this.pronunciation = pronunciation;
     }
 
     public void setExample(String example) {

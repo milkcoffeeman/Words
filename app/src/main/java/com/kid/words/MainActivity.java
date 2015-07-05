@@ -1,29 +1,31 @@
 package com.kid.words;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.kid.words.activity.articles_activity;
+import com.kid.words.activity.words_activity;
+import com.kid.words.database.DBDao_Words;
+import com.kid.words.user_defined_class.Word;
 
 import java.io.InputStream;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
-    private TextView tv_word;
-    private TextView tv_explain;
-    private TextView tv_example;
-    private Button btn_next;
-
     //words.db数据库
-    DBDao db = new DBDao(this);
+    DBDao_Words db = new DBDao_Words(this);
     Word word_get = null;
+
+    private Button btn_words;
+    private Button btn_articles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 @Override
                 public void run() {
                     Looper.prepare();
-                    Toast.makeText(MainActivity.this, "第一次进入app，需加载数据库，请稍等",
+                    Toast.makeText(MainActivity.this,R.string.first_login,
                             Toast.LENGTH_LONG).show();
                     Looper.loop();// 进入loop中的循环，查看消息队列
 
@@ -53,10 +55,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             InputStream inputStream = getResources().openRawResource(R.raw.words);
             //读取words.txt
-            ReadTXT readtxt = new ReadTXT();
+            com.kid.words.ReadTXT readtxt = new com.kid.words.ReadTXT();
             String outputStr = readtxt.readtxt(inputStream);
             //分词算法，并将词库导入sqlite
-            WordDivide worddivide = new WordDivide();
+            com.kid.words.WordDivide worddivide = new com.kid.words.WordDivide();
             worddivide.worddivide(db, outputStr);
 
             //写入file，isFisrt置为false
@@ -70,29 +72,27 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             //提交当前数据
             editor.commit();
             //使用toast信息提示框提示成功写入数据
-            Toast.makeText(this, "数据库加载成功！",
+            Toast.makeText(this, R.string.database_success,
                     Toast.LENGTH_LONG).show();
         }
 
-        tv_word = (TextView) findViewById(R.id.tv_word);
-        tv_explain = (TextView) findViewById(R.id.tv_explain);
-        tv_example = (TextView) findViewById(R.id.tv_example);
-        btn_next = (Button) findViewById(R.id.btn_next);
-        btn_next.setOnClickListener(this);
+        btn_words = (Button) findViewById(R.id.btn_words);
+        btn_words.setOnClickListener(this);
+        btn_articles = (Button) findViewById(R.id.btn_articles);
+        btn_articles.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_next:
-                int random_num = (int) (Math.random() * db.getCount());
-                if (db.find(random_num) != null) {
-                    word_get = db.find(random_num);
-                    Log.e("test", word_get.getId() + "------" + word_get.getWord() + "------" + word_get.getExplain() + "------" + word_get.getExample());
-                    tv_word.setText(word_get.getWord());
-                    tv_explain.setText(word_get.getExplain());
-                    tv_example.setText(word_get.getExample());
-                }
+            case R.id.btn_words:
+                Intent it1 = new Intent(this, words_activity.class);
+                startActivity(it1);
+                break;
+            case R.id.btn_articles:
+                Intent it2 = new Intent(this, articles_activity.class);
+                startActivity(it2);
                 break;
             default:
                 break;
