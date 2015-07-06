@@ -6,10 +6,12 @@
     <string name="action_settings">Settings</string>
     <string name="words">"单词背诵"</string>
     <string name="articles">"英语文章"</string>
-    <string name="next">NEXT</string>
-    <string name="start">START</string>
-    <string name="first_login">"第一次进入app，需加载数据库，请稍等"</string>
+    <string name="next">"下一个"</string>
+    <string name="start">"开始"</string>
+    <string name="first_login">"加载数据库，请稍等..."</string>
     <string name="database_success">"数据库加载成功！"</string>
+    <string name="detail">"详细信息"</string>
+    <string name="ok">"确认"</string>
 
 
 </resources>

@@ -121,4 +121,27 @@ public class DBDao_Articles {
         long reslut=cursor.getLong(0);
         return reslut;
     }
+    /**
+     * 自增id初始化
+     *
+     */
+    public void initId(){
+        SQLiteDatabase db= dbOpenHelperArticles.getReadableDatabase();
+        Cursor cursor =db.rawQuery("update sqlite_sequence set seq = 0", null);
+        cursor.moveToFirst();
+        //Cursor cursor =db.rawQuery("select max(seq) from sqlite_sequence", null);
+    }
+    /**
+     * 获得最大id
+     *
+     */
+    public int getMaxId(){
+        SQLiteDatabase db= dbOpenHelperArticles.getReadableDatabase();
+        Cursor cursor =db.rawQuery("select max(seq) from sqlite_sequence", null);
+        while(cursor.moveToNext()){
+            int id2=cursor.getInt(0);
+            return id2;
+        }
+        return 0;
+    }
 }
