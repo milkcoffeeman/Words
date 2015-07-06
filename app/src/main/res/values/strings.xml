@@ -12,6 +12,10 @@
     <string name="database_success">"数据库加载成功！"</string>
     <string name="detail">"详细信息"</string>
     <string name="ok">"确认"</string>
+    <string name="articles_word">"先背后读"</string>
+    <string name="learn_words_again">"点击下一步将从第一个单词开始背诵"</string>
+    <string name="articles_start">"开始阅读"</string>
+
 
 
 </resources>

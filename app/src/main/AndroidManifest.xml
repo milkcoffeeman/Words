@@ -19,7 +19,11 @@
             android:label="@string/words"/>
         <activity android:name=".activity.articles_activity"
             android:label="@string/articles"/>
+        <activity android:name=".activity.articles_word_activity"
+            android:label="@string/articles_word"/>
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
 
 
 </manifest>
