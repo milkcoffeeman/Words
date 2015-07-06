@@ -72,6 +72,7 @@ public class articles_activity extends ActionBarActivity implements View.OnClick
         //该textview设置为可滚动
         tv_article.setMovementMethod(ScrollingMovementMethod.getInstance());
         SpannableString sp = new SpannableString(outputStr);
+        tv_article.setText(sp);
 
         //高亮特定单词
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
