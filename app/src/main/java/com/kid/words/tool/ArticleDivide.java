@@ -18,7 +18,7 @@ public class ArticleDivide {
             if((DBDao_words.findByWord(words[i]))>0 && db.findByWord(words[i]) ==-1){
                 Article_word article_word = new Article_word();
                 article_word.setWord_id(DBDao_words.findByWord(words[i]));
-                article_word.setWord(words[i]);
+                article_word.setWord(words[i].trim());
                 db.save(article_word);
 
                 //Log.e("id",db.findByWord(words[i])+"");

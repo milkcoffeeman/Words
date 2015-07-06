@@ -55,7 +55,7 @@ public class articles_activity extends ActionBarActivity implements View.OnClick
         });
         newThread.start(); //启动线程
 
-        InputStream inputStream = getResources().openRawResource(R.raw.jobs);
+        InputStream inputStream = getResources().openRawResource(R.raw.billgates);
         //读取jobs.txt
         com.kid.words.ReadTXT readtxt = new com.kid.words.ReadTXT();
         String outputStr = readtxt.readtxt(inputStream);
@@ -99,8 +99,8 @@ public class articles_activity extends ActionBarActivity implements View.OnClick
                 //将学生的详细信息在对话框里面显示
                 Word word_get = new Word();
                 word_get = DBDao_words.find(db.find((int)arg3+1).getWord_id());
-                builder.setMessage(word_get.getWord()+"\n"+word_get.getPronunciation()+"\n"+word_get.getExample())
-                        .setTitle(R.string.detail)
+                builder.setMessage(word_get.getPronunciation()+"\n"+word_get.getExample())
+                        .setTitle(word_get.getWord())
                         .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
 
