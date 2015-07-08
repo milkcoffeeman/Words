@@ -21,11 +21,10 @@
             android:label="@string/articles"/>
         <activity android:name=".activity.articles_word_activity"
             android:label="@string/articles_word"/>
+        <activity android:name=".activity.words_evaluate_activity"
+            android:label="@string/words_evaluate"/>
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-
-
-
 
 </manifest>

@@ -32,5 +32,14 @@
         android:layout_below="@+id/btn_articles"
         android:textSize="30sp"
         android:textColor="@color/blue"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_words_evaluate"
+        android:text="@string/words_evaluate"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btn_artcles_word"
+        android:textSize="30sp"
+        android:textColor="@color/blue"/>
 
 </RelativeLayout>

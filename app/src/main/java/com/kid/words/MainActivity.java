@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.kid.words.activity.articles_activity;
 import com.kid.words.activity.articles_word_activity;
 import com.kid.words.activity.words_activity;
+import com.kid.words.activity.words_evaluate_activity;
 import com.kid.words.database.DBDao_Words;
 import com.kid.words.user_defined_class.Word;
 
@@ -28,6 +29,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private Button btn_words;
     private Button btn_articles;
     private Button btn_artcles_word;
+    private Button btn_words_evaluate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +86,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         btn_articles.setOnClickListener(this);
         btn_artcles_word = (Button) findViewById(R.id.btn_artcles_word);
         btn_artcles_word.setOnClickListener(this);
+        btn_words_evaluate = (Button) findViewById(R.id.btn_words_evaluate);
+        btn_words_evaluate.setOnClickListener(this);
 
 
     }
@@ -102,6 +106,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.btn_artcles_word:
                 Intent it3 = new Intent(this, articles_word_activity.class);
                 startActivity(it3);
+            case R.id.btn_words_evaluate:
+                Intent it4 = new Intent(this, words_evaluate_activity.class);
+                startActivity(it4);
             default:
                 break;
         }

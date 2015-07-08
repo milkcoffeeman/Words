@@ -15,5 +15,14 @@
     <string name="articles_word">"先背后读"</string>
     <string name="learn_words_again">"点击下一步将从第一个单词开始背诵"</string>
     <string name="articles_start">"开始阅读"</string>
+    <string name="words_evaluate">"词量评估"</string>
+    <string name="know">"认识"</string>
+    <string name="unknow">"不认识"</string>
+    <string name="your_vocabulary_is">"您的词汇量:"</string>
+    <string name="class_one_words">"一级词汇量，非常棒！"</string>
+    <string name="class_two_words">"二级词汇量，优秀！"</string>
+    <string name="class_three_words">"三级词汇量，继续努力！"</string>
+    <string name="class_four_words">"四级词汇量，从零开始！"</string>
+    <string name="back">"返回"</string>
 
 </resources>
