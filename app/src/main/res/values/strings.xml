@@ -24,5 +24,8 @@
     <string name="class_three_words">"三级词汇量，继续努力！"</string>
     <string name="class_four_words">"四级词汇量，从零开始！"</string>
     <string name="back">"返回"</string>
+    <string name="net_problem">"网络故障！"</string>
+    <string name="WEBADDRESS">"http://10.0.2.2:8080/TEST/"</string>
+
 
 </resources>

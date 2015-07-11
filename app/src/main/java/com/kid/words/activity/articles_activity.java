@@ -20,10 +20,9 @@ import com.kid.words.R;
 import com.kid.words.database.DBDao_Articles;
 import com.kid.words.database.DBDao_Words;
 import com.kid.words.tool.ArticleDivide;
+import com.kid.words.tool.FileHelper;
 import com.kid.words.user_defined_class.Article_word;
 import com.kid.words.user_defined_class.Word;
-
-import java.io.InputStream;
 
 /**
  * Created by guotao on 15/7/5.
@@ -55,10 +54,9 @@ public class articles_activity extends ActionBarActivity implements View.OnClick
         });
         newThread.start(); //启动线程
 
-        InputStream inputStream = getResources().openRawResource(R.raw.billgates);
-        //读取jobs.txt
-        com.kid.words.ReadTXT readtxt = new com.kid.words.ReadTXT();
-        String outputStr = readtxt.readtxt(inputStream);
+        //读取article.txt
+        FileHelper fileHelper = new FileHelper(articles_activity.this);
+        String outputStr = fileHelper.readSDFile("Words_english_article.txt");
         //文章提取单词算法，并将词库导入sqlite
         ArticleDivide articledivide = new ArticleDivide();
         //删除数据库原有内容

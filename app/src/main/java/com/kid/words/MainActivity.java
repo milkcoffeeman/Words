@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,6 +16,8 @@ import com.kid.words.activity.articles_word_activity;
 import com.kid.words.activity.words_activity;
 import com.kid.words.activity.words_evaluate_activity;
 import com.kid.words.database.DBDao_Words;
+import com.kid.words.tool.FileHelper;
+import com.kid.words.tool.GetWebContent;
 import com.kid.words.user_defined_class.Word;
 
 import java.io.InputStream;
@@ -79,6 +82,36 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             Toast.makeText(this, R.string.database_success,
                     Toast.LENGTH_LONG).show();
         }
+
+
+        //webcontent获取，载入网站上推送的文章
+        //声明一个子线程，用于给出提示
+        Thread newThreadWeb;
+        newThreadWeb = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Looper.prepare();
+                String webContent = null;
+                try {
+                    webContent =  new GetWebContent().GetWebContent(getResources().getString(R.string.WEBADDRESS));
+                    FileHelper fileHelper = new FileHelper(MainActivity.this);
+                    if(fileHelper.isHasSD()){
+                        fileHelper.createSDFile("Words_english_article.txt");
+                        fileHelper.writeSDFile(webContent, "Words_english_article.txt");
+                    }
+                }catch (Exception e){
+                    Log.e("test", e.getMessage());
+                }
+                if(webContent == null){
+                    Toast.makeText(MainActivity.this,R.string.net_problem,
+                            Toast.LENGTH_LONG).show();
+                }
+                Looper.loop();// 进入loop中的循环，查看消息队列
+
+            }
+        });
+        newThreadWeb.start(); //启动线程
+
 
         btn_words = (Button) findViewById(R.id.btn_words);
         btn_words.setOnClickListener(this);
