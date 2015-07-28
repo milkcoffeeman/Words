@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.kid.words.activity.articles_activity;
 import com.kid.words.activity.articles_word_activity;
+import com.kid.words.activity.website_open_activity;
 import com.kid.words.activity.words_activity;
 import com.kid.words.activity.words_evaluate_activity;
 import com.kid.words.database.DBDao_Words;
@@ -33,6 +34,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private Button btn_articles;
     private Button btn_artcles_word;
     private Button btn_words_evaluate;
+    private Button btn_website_open;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +102,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         fileHelper.writeSDFile(webContent, "Words_english_article.txt");
                     }
                 }catch (Exception e){
-                    Log.e("test", e.getMessage());
+                    Log.e("test", e.getMessage()+"");
                 }
                 if(webContent == null){
                     Toast.makeText(MainActivity.this,R.string.net_problem,
@@ -121,6 +123,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         btn_artcles_word.setOnClickListener(this);
         btn_words_evaluate = (Button) findViewById(R.id.btn_words_evaluate);
         btn_words_evaluate.setOnClickListener(this);
+        btn_website_open = (Button) findViewById(R.id.btn_website_open);
+        btn_website_open.setOnClickListener(this);
 
 
     }
@@ -142,6 +146,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.btn_words_evaluate:
                 Intent it4 = new Intent(this, words_evaluate_activity.class);
                 startActivity(it4);
+            case R.id.btn_website_open:
+                Intent it5 = new Intent(this, website_open_activity.class);
+                startActivity(it5);
             default:
                 break;
         }

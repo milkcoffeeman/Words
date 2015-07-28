@@ -26,6 +26,8 @@
     <string name="back">"返回"</string>
     <string name="net_problem">"网络故障！"</string>
     <string name="WEBADDRESS">"http://10.0.2.2:8080/TEST/"</string>
+    <string name="website_open">"打开网页"</string>
+    <string name="PLEASE_INPUTE_WEBSITE">"请输入网址"</string>
 
 
 </resources>
